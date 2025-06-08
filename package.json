@@ -1,0 +1,26 @@
+{
+  "name": "coworking-reservation",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "FAHMI"
+  ],
+  "homepage": "https://github.com/Fahmi822/coworking-reservation#readme",
+  "bugs": {
+    "url": "https://github.com/Fahmi822/coworking-reservation/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fahmi822/coworking-reservation.git"
+  },
+  "license": "ISC",
+  "author": "fahmi",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
