@@ -1,0 +1,56 @@
+type User {
+  _id: ID!
+  name: String!
+  email: String!
+  password: String!
+  role: String! # "user" ou "admin"
+}
+
+type Space {
+  _id: ID!
+  name: String!
+  type: String! # "meeting_room" ou "desk"
+  capacity: Int!
+  equipment: [String!]!
+}
+
+type Booking {
+  _id: ID!
+  user: User!
+  space: Space!
+  start: String!
+  end: String!
+  status: String! # "pending", "confirmed", "cancelled"
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type Query {
+  getAvailableSpaces(start: String!, end: String!): [Space!]!
+  getUserBookings(userId: ID!): [Booking!]!
+  login(email: String!, password: String!): AuthPayload!
+}
+
+type Mutation {
+  createBooking(
+    spaceId: ID!
+    start: String!
+    end: String!
+  ): Booking! @auth
+
+  registerUser(
+    name: String!
+    email: String!
+    password: String!
+  ): AuthPayload!
+
+  addSpace(
+    name: String!
+    type: String!
+    capacity: Int!
+    equipment: [String!]!
+  ): Space! @auth(requires: "admin")
+}
